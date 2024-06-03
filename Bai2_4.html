@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Khai báo mảng</h1>
+    <label for="num">Nhập kích thức mảng</label>
+    <input type="text" id="num" placeholder="Nhập số"><br><br>
+    <textarea id="arr" placeholder="Nhập mảng" cols="40" rows="6"></textarea><br><br>
+    <button onclick="getElement()">Đếm từ trong chuỗi</button>
+    <p id="result"></p>
+    <script>
+        function getElement() {
+            let arr = document.getElementById("arr").value;
+            let array = arr.split(",");
+            let num = parseInt(document.getElementById("num").value);
+            if (array.length !== num) {
+                alert("Số lượng phần tử trong mảng phải là " + num + ". Hiện tại đang có " + array.length + " phần tử!");
+                return;
+            }
+            
+            let countWords = [];
+            let totalWords = 0;
+            for (let i = 0; i<array.length; i++){
+                //Xóa bỏ khoảng trắng ở đầu và cuối chuỗi
+                let str = array[i].trim();
+                //Nếu chuỗi rỗng trả về 0
+                if (str===""){
+                    countWords.push(0);
+                } else {
+                    //Tách chuỗi thành các từ sử dụng dấu cách làm dấu phân cách và lọc các phần tử rỗng
+                    let words= str.split(/\s+/);
+                    countWords.push(words.length);
+                    totalWords += words.length;
+                }
+                console.log("Chuỗi thứ "+(i+1)+" có số từ là "+countWords[i]);
+            }
+
+            document.getElementById("result").innerHTML = "Tổng số từ trong các chuỗi là "+totalWords;
+        }
+    </script>
+</body>
+
+</html>

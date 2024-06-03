@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Khai báo mảng</h1>
+    <label for="num">Nhập kích thức mảng</label>
+    <input type="text" id="num" placeholder="Nhập số"><br><br>
+    <label for="arr">Nhập mảng</label><br><br>    
+    <textarea id="arr" placeholder="Nhập mảng" cols="40" rows="6"></textarea><br><br>
+    <button onclick="getElement()">Đếm kí tự mảng</button>
+    <p id="result"></p>
+    <script>
+        function getElement() {
+            let arr = document.getElementById("arr").value;
+            let array = arr.split(",");//.map(str => str.trim())
+            let num = parseInt(document.getElementById("num").value);
+            if (array.length !== num) {
+                alert("Số lượng phần tử trong mảng phải là " + num + ". Hiện tại đang có " + array.length + " phần tử!");
+                return;
+            }
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                    count += array[i].length;
+            }
+            document.getElementById("result").innerHTML = "Số lượng kí tự trong mảng " + array.join("") + " là: " + count;
+        }
+    </script>
+</body>
+
+</html>

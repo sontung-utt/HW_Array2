@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="word">Nhập từ:</label>
+    <input type="text" id="word"><br><br>
+    <button onclick="getDictionary()">Dịch</button>
+    <p id="result"></p>
+    <script>
+        function getDictionary() {
+            let word = document.getElementById("word").value;
+            let arrEng = ["Apple", "Banana", "Orange", "Peach", "Grape", "Mango", "Egg", "Durian"];
+            let arrVie = ["Táo", "Chuối", "Cam", "Đào", "Nho", "Xoài", "Trứng", "Sầu riêng"];
+            let index_Eng = -1;
+            for (let i = 0; i < arrEng.length; i++) {
+                if (word == arrEng[i]) {
+                    index_Eng = i;
+                    break;
+                }
+            }
+            if (index_Eng !==-1) {
+                document.getElementById("result").innerHTML = arrVie[index_Eng];
+            } else {
+                document.getElementById("result").innerHTML = "Không tìm thấy kết quả!"
+            }
+        }
+    </script>
+</body>
+
+</html>

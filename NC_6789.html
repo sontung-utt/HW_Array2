@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [
+            [1, 3, 4],
+            [3, 4, 5],
+            [5, 5, 6]
+        ];
+        for (let j = 0; j < arr[0].length; j++) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i][j];
+                console.log("Cột " + j + " hàng " + i + " " + arr[i][j]);
+                console.log("Tổng hiện tại " + sum);
+            }
+            console.log("Tổng các số của cột " + j + " là " + sum);
+            document.write("Tổng các số của cột " + (j + 1) + " là " + sum + "<br>");
+        }
+        for (let j = 0; j < arr[0].length; j++) {
+            let max = arr[0][j];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                }
+            }
+            console.log("Số lớn nhất ở cột " + (j + 1) + " là " + max);
+            document.write("Số lớn nhất ở cột " + (j + 1) + " là " + max + "<br>");
+        }
+
+        //Đường chéo chính
+        let maxC = arr[0][0];
+        let sumC = 0;
+        for (let i = 0; i < arr.length; i++) {
+            document.write("Các giá trị đường chéo chính "+arr[i][i]+"<br>");
+            if (arr[i][i] > maxC) {
+                maxC = arr[i][i];
+            }
+        }
+        console.log("Giá trị lớn nhất của đường chéo chính là: " + maxC);
+        document.write("Giá trị lớn nhất của đường chéo chính là: " + maxC + "<br>");
+        for (let i = 0; i < arr.length; i++) {
+            sumC += arr[i][i];
+        }
+        console.log("Tổng của đường chéo chính là: " + sumC);
+        document.write("Tổng của đường chéo chính là: " + sumC + "<br>");
+
+        //Đường chéo phụ
+        let maxP = arr[0][arr.length-1];
+        let sumP = 0;
+        for (let i = 0; i<arr.length; i++){
+            document.write("các giá trị đường chéo phụ "+arr[i][arr.length-1-i]+"<br>");
+            if(arr[i][arr.length-1-i]>maxP){
+                maxP = arr[i][arr.length-1-i];
+            }
+        }
+        console.log("Giá trị lớn nhất của đường chéo phụ là: " + maxP);
+        document.write("Giá trị lớn nhất của đường chéo phụ là: " + maxP + "<br>");
+        for (let i =0;i<arr.length; i++){
+            sumP += arr[i][arr.length-1-i];
+        }
+        console.log("Tổng của đường chéo phụ là: " + sumP);
+        document.write("Tổng của đường chéo phụ là: " + sumP + "<br>");
+    </script>
+</body>
+
+</html>

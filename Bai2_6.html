@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Thay đổi kí tự trong mảng</h3>
+    <label for="num">Nhập số lượng phần tử</label>
+    <input type="text" id="num" placeholder="Nhập số"><br><br>
+    <label for="arr">Nhập mảng</label><br><br>
+    <textarea id="arr" placeholder="Mảng" rows="6" cols="40"></textarea><br><br>
+    <button onclick="getChange()">Đổi kí tự</button>
+    <p id="result"></p>
+    <script>
+        function getChange() {
+            let num = parseInt(document.getElementById("num").value);
+            let arr = document.getElementById("arr").value;
+            let array = arr.split(",").map(string => string.trim());
+            if (array.length !== num) {
+                alert("Mảng phải có " + num + " phần tử. Hiện tại đang có " + array.length + " phần tử!");
+                return;
+            }
+            //Thay đổi kí tự
+            //array = array.map(char=>char==="-" ? "_" :char);
+            for(let i =0; i<array.length; i++){
+                array[i]=array[i].replace(/-/g, "_")
+            }
+            document.getElementById("result").innerHTML="Mảng sau khi đổi kí tự là "+array.join(", ");
+        }
+    </script>
+</body>
+
+</html>

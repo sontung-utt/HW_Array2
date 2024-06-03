@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Type anything slowly</h1>
+    <form name="f">
+        <textarea id="text" rows="8" cols="40" onkeydown="typeText()"></textarea>
+    </form>
+    <script>
+        let array = [];
+        let n = "";
+        array[1] = "T"; array[2] = "Ô"; array[3] = "I"; array[4] = " "; array[5] = "L"; array[6] = "À"; array[7] = " "; array[8] = "M"; array[9] = "Ộ"; array[10] = "T";
+        array[11] = " "; array[12] = "Đ"; array[13] = "Ứ"; array[14] = "A"; array[15] = " "; array[16] = "N"; array[17] = "G"; array[18] = "Ố"; array[19] = "C"; array[20] = "!"; array[21]=" ";
+        function typeText() {
+            t = document.f.text.value;
+            j = t.length;
+            if (j > 0) {
+                for (let i = 1; i <= j; i++) {
+                    n = n + array[i];
+                    if (i == 21) {
+                        document.f.text.value = "";
+                        n = "";
+                    }
+                }
+            }
+            document.f.text.value = n;
+            n="";
+            setTimeout("typeText()", 0.5);
+        }
+    </script>
+</body>
+
+</html>

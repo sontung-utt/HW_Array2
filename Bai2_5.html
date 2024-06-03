@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>So sánh 2 chuỗi trong mảng</h3>
+    <label for="str">Nhập thông tin mảng</label><br><br>    
+    <textarea id="str" placeholder="Nhập mảng" cols="40" rows="6"></textarea><br><br>
+    <button onclick="getCheck()">Kiểm tra</button>
+    <p id="result"></p>
+    <script>
+        function getCheck(){
+            let str = document.getElementById("str").value;
+            //Tách chuỗi. Loại bỏ khoảng trắng thừa
+            let string = str.split(",").map(str => str.trim());
+            let result = document.getElementById("result");
+            if (string.length!==2){
+                result.innerHTML = "Chỉ được nhập 2 chuỗi. Bạn đang nhập "+string.length+" chuỗi!";
+                return;
+            }
+            if (string[0]===string[1]){
+                result.innerHTML = "Hai chuỗi vừa nhập giống nhau";
+            } else {
+                result.innerHTML = "Hai chuỗi vừa nhập không giống nhau";
+            }
+        }
+    </script>
+</body>
+</html>
